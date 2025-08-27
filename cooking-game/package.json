@@ -1,0 +1,13 @@
+{
+  "name": "cooking-game",
+  "version": "1.0.0",
+  "description": "Interactive Cooking Game - Serve customers by selecting the right ingredients!",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "serve": "npx serve ."
+  },
+  "keywords": ["cooking", "game", "html5", "javascript", "interactive"],
+  "author": "Ariz",
+  "license": "MIT"
+}
