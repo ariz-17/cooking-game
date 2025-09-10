@@ -12,7 +12,7 @@ body {
     margin: 0;
     overflow: hidden;
 }
-/* Background video fills viewport and sits behind content */
+
 .bg-video {
     position: fixed;
     top: 50%;
@@ -25,7 +25,7 @@ body {
     filter: brightness(0.65);
 }
 
-/* Selection Styles (shared between background and chef selection) */
+
 .bg-selection-container,
 .chef-selection-container {
     display: flex;
@@ -82,7 +82,6 @@ body {
     display: block;
 }
 
-/* Kitchen preview images now use actual different images instead of filters */
 
 .bg-preview::after {
     content: "";
@@ -301,16 +300,13 @@ body {
     opacity: 0.95;
 }
 
-/* Smooth press transitions for all buttons */
 button, .ingredient-btn, .hint-button {
     transition: transform 120ms ease, box-shadow 150ms ease, background-color 200ms ease;
-    /* Touch-friendly sizing */
     min-height: 44px;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Ensure all interactive elements are touch-friendly */
 .bg-selection-option,
 .chef-selection-option {
     min-height: 44px;
@@ -318,12 +314,12 @@ button, .ingredient-btn, .hint-button {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Smooth animation helpers */
+
 .fade-in { animation: fadeIn 200ms ease both; }
 .fade-out { animation: fadeOut 150ms ease both; }
 .btn-press { transform: scale(0.97) !important; }
 
-/* Score change animation */
+
 .score-change {
     position: absolute;
     font-weight: bold;
@@ -333,11 +329,11 @@ button, .ingredient-btn, .hint-button {
 }
 
 .score-positive {
-    color: #10b981; /* Green color */
+    color: #10b981; 
 }
 
 .score-negative {
-    color: #ef4444; /* Red color */
+    color: #ef4444; 
 }
 
 @keyframes scoreChange {
@@ -357,7 +353,7 @@ button, .ingredient-btn, .hint-button {
     to { opacity: 0; transform: translateY(-4px); }
 }
 
-/* Modal pop animation */
+
 #instructions-modal > div,
 #game-over-modal > div {
     animation: modalPop 220ms ease both;
@@ -368,7 +364,7 @@ button, .ingredient-btn, .hint-button {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* Hint popover subtle drop */
+
 .hint-content { animation: hintDrop 180ms ease both; }
 @keyframes hintDrop {
     from { opacity: 0; transform: translate(-50%, -6px); }
@@ -444,7 +440,7 @@ button, .ingredient-btn, .hint-button {
     display: none !important;
 }
 
-/* Instructions modal styling */
+
 #instructions-modal {
     position: fixed;
     top: 0;
@@ -466,7 +462,7 @@ button, .ingredient-btn, .hint-button {
     display: none !important;
 }
 
-/* Loading screen responsive design */
+
 #loading-screen {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     animation: fadeIn 220ms ease both;
@@ -490,7 +486,6 @@ button, .ingredient-btn, .hint-button {
     font-weight: bold;
 }
 
-/* Tablet and smaller desktop screens */
 @media (max-width: 1024px) {
     .game-container {
         width: 95%;
@@ -508,7 +503,6 @@ button, .ingredient-btn, .hint-button {
     }
 }
 
-/* Mobile landscape and tablet portrait */
 @media (max-width: 768px) {
     body {
         padding: 0.5rem;
@@ -548,7 +542,6 @@ button, .ingredient-btn, .hint-button {
         margin-bottom: 1rem;
     }
     
-    /* Chef and background selection for mobile */
     .bg-selection-container,
     .chef-selection-container {
         flex-direction: column;
@@ -581,7 +574,6 @@ button, .ingredient-btn, .hint-button {
         border-radius: 50%;
     }
     
-    /* Customer area mobile optimization */
     .customer-controls {
         flex-wrap: wrap;
         gap: 0.5rem;
@@ -642,7 +634,6 @@ button, .ingredient-btn, .hint-button {
         max-width: 150px;
     }
     
-    /* Hint content mobile optimization */
     .hint-content {
         position: fixed;
         top: 50%;
@@ -653,7 +644,6 @@ button, .ingredient-btn, .hint-button {
         width: auto;
     }
     
-    /* Modal optimization for mobile */
     #instructions-modal .bg-white {
         margin: 1rem;
         max-height: 85vh;
@@ -667,146 +657,5 @@ button, .ingredient-btn, .hint-button {
     
     .grid.grid-cols-1.md\:grid-cols-2 {
         grid-template-columns: 1fr;
-    }
-}
-
-/* Mobile portrait */
-@media (max-width: 480px) {
-    body {
-        padding: 0.25rem;
-    }
-    
-    #loading-screen img {
-        max-width: 95vw;
-        max-height: 40vh;
-    }
-    
-    #loading-screen p {
-        font-size: 1.2rem;
-        margin-top: 1rem;
-    }
-    
-    .game-container {
-        width: 99%;
-        padding: 0.75rem;
-        margin: 0.25rem auto;
-        max-height: 95vh;
-    }
-    
-    .game-container h1 {
-        font-size: 1.3rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .intro-card {
-        padding: 1rem;
-        margin: 0.25rem;
-        width: 98%;
-    }
-    
-    .intro-card h2 {
-        font-size: 1.5rem;
-    }
-    
-    .intro-card p {
-        font-size: 0.9rem;
-    }
-    
-    /* Ultra-compact ingredient buttons for small phones */
-    .ingredient-btn {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.75rem;
-        min-width: 75px;
-        flex: 1 1 calc(50% - 0.15rem);
-    }
-    
-    .customer-controls button {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.8rem;
-        min-width: 70px;
-    }
-    
-    .customer-image {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .score-display {
-        font-size: 1.1rem;
-    }
-    
-    .status-message {
-        font-size: 1rem;
-    }
-    
-    .chef-info {
-        transform: scale(0.7);
-    }
-    
-    .chef-info img {
-        width: 70px;
-        height: 70px;
-    }
-    
-    /* Buttons in intro screens */
-    .intro-card button {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .intro-card input {
-        padding: 0.75rem;
-        font-size: 1rem;
-        width: 100%;
-    }
-}
-
-/* Extra small screens */
-@media (max-width: 360px) {
-    .ingredient-btn {
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin-bottom: 0.25rem;
-    }
-    
-    .customer-controls {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .customer-controls button {
-        width: 100%;
-        max-width: 150px;
-    }
-    
-    .chef-info {
-        transform: scale(0.6);
-    }
-}
-
-/* Landscape orientation adjustments */
-@media (max-height: 500px) and (orientation: landscape) {
-    .game-container {
-        max-height: 95vh;
-        padding: 0.5rem;
-    }
-    
-    .intro-card {
-        padding: 1rem;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-    
-    .customer-image {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .chef-info {
-        transform: scale(0.5);
-    }
-    
-    .ingredient-buttons {
-        padding: 0.25rem;
     }
 }
