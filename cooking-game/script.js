@@ -159,15 +159,13 @@ function selectBackground(bgNumber) {
         }
     });
     
-    // Force video reload with proper error handling
     bgVideo.pause();
     bgVideo.src = BACKGROUND_VIDEOS[bgNumber];
-    bgVideo.load();
-    
-    // Add error handling for video loading
+    bgVideo.load();  
+   
     bgVideo.onerror = function() {
         console.error('Error loading video:', BACKGROUND_VIDEOS[bgNumber]);
-        // Fallback to a default background if video fails
+    
         bgVideo.style.display = 'none';
         document.body.style.backgroundImage = `url('assets/Kitchen ${bgNumber}.${bgNumber === 3 ? 'jpeg' : 'png'}')`;
         document.body.style.backgroundSize = 'cover';
@@ -246,7 +244,7 @@ function rebuildCustomerQueue() {
     customerQueue = Array.from({ length: customers.length }, (_, i) => i);
     shuffleArray(customerQueue);
     if (customerQueue.length > 1 && customerQueue[0] === lastCustomerIndex) {
-        // Swap first with a different element to avoid consecutive repeat
+
         [customerQueue[0], customerQueue[1]] = [customerQueue[1], customerQueue[0]];
     }
 }
@@ -468,7 +466,6 @@ startButton.addEventListener('click', showNameInput);
 startButton.addEventListener('mousedown', () => startButton.classList.add('btn-press'));
 startButton.addEventListener('mouseup', () => startButton.classList.remove('btn-press'));
 
-// Chef selection event listeners
 chefSelectionOptions.forEach(option => {
     option.addEventListener('click', () => selectChef(option.dataset.chef));
 });
@@ -477,7 +474,6 @@ continueToBackgroundBtn.addEventListener('click', showBackgroundSelection);
 continueToBackgroundBtn.addEventListener('mousedown', () => continueToBackgroundBtn.classList.add('btn-press'));
 continueToBackgroundBtn.addEventListener('mouseup', () => continueToBackgroundBtn.classList.remove('btn-press'));
 
-// Background selection event listeners
 bgSelectionOptions.forEach(option => {
     option.addEventListener('click', () => selectBackground(parseInt(option.dataset.bg)));
 });
@@ -521,7 +517,6 @@ instructionsModal.addEventListener('click', (e) => {
     }
 });
 
-// Hint button event listener
 hintBtn.addEventListener('click', showHint);
 hintBtn.addEventListener('mousedown', () => hintBtn.classList.add('btn-press'));
 hintBtn.addEventListener('mouseup', () => hintBtn.classList.remove('btn-press'));
@@ -536,4 +531,5 @@ document.addEventListener('DOMContentLoaded', function() {
         introScreen.classList.remove('hidden');
         loadGameData();
     }, 3000);
+
 });
